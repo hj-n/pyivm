@@ -6,7 +6,7 @@ A comprehensive Python library for computing clustering quality metrics with bot
 
 Traditional clustering metrics have a fundamental problem: they're biased and unreliable when comparing different clustering solutions. For example, some metrics artificially favor clusterings with more clusters, while others behave inconsistently across different datasets. This makes it nearly impossible to fairly evaluate which clustering is actually better.
 
-PyIVM solves this with **adjusted metrics** (TPAMI 2025). The adjusted versions remove these biases and provide consistent, reliable scores that enable fair comparison across different numbers of clusters and datasets. Moreover, all adjusted metrics use a simple "higher = better" interpretation, making clustering evaluation straightforward.
+PyIVM solves this with **adjusted metrics** (<a href="https://www.hyeonjeon.com/assets/pdf/jeon25tpami.pdf" target="_blank">TPAMI 2025</a>). The adjusted versions remove these biases and provide consistent, reliable scores that enable fair comparison across different numbers of clusters and datasets. Moreover, all adjusted metrics use a simple "higher = better" interpretation, making clustering evaluation straightforward.
 
 ## Features
 
@@ -143,7 +143,11 @@ print(scores)
 - SciPy ^1.7.0
 - scikit-learn ^1.0.0
 
+## Reference
 
+For more details on the adjusted metrics and their theoretical foundations, please refer to our paper:
+
+Jeon, H., Aupetit, M., Shin, D., Cho, A., Park, S., & Seo, J. (2025). Measuring the Validity of Clustering Validation Datasets. *IEEE Transactions on Pattern Analysis and Machine Intelligence*, 47(6), 5045-5058. [DOI: 10.1109/TPAMI.2025.3548011](https://doi.org/10.1109/TPAMI.2025.3548011)
 
 ## Citation
 
