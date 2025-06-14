@@ -1,12 +1,21 @@
 [tool.poetry]
 name = "pyivm"
 version = "0.1.0"
-description = ""
+description = "Python library for clustering quality index metrics with original and adjusted forms"
 authors = ["Hyeon Jeon <hj@hcil.snu.ac.kr>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+numpy = "^1.20.0"
+scipy = "^1.7.0"
+scikit-learn = "^1.0.0"
+pandas = "^1.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-html = "^3.1.0"
+requests = "^2.28.0"
 
 
 [build-system]
