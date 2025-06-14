@@ -162,6 +162,7 @@ def dunn_adjusted(X, labels, k):
 
 
 def dunn(X, labels, adjusted=False, k=0.40019810656179045):
+	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return dunn_adjusted(X, labels, k)
 	else:

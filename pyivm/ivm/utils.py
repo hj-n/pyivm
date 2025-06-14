@@ -82,3 +82,10 @@ def geometric_median(X, eps=1e-5):
 			return y1
 
 		y = y1
+
+def change_label_to_int(labels):
+	
+	unique_labels = np.unique(labels)
+	label_map = {old_label: new_label for new_label, old_label in enumerate(unique_labels)}
+	labels_int = np.array([label_map[old_label] for old_label in labels], dtype=np.int32)
+	return labels_int

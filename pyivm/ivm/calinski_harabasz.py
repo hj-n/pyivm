@@ -4,6 +4,8 @@ from sklearn.metrics.pairwise import euclidean_distances
 
 def calinski_harabasz_template(X, label, normalize):
 
+
+
 	n_clusters = len(np.unique(label))
 	n_samples = X.shape[0]
 	n_features = X.shape[1]
@@ -130,6 +132,7 @@ def calinski_harabasz_adjusted(X, labels, k):
 
 
 def calinski_harabasz(X, labels, adjusted=False, k=4.432010535838295):
+	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return calinski_harabasz_adjusted(X, labels, k)
 	else:

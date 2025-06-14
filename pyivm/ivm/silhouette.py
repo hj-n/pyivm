@@ -64,6 +64,7 @@ def silhouette_adjusted(X, labels):
 	return silhouette_btw(X, labels)
 
 def silhouette(X, labels, adjusted=False):
+	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return silhouette_adjusted(X, labels)
 	else:

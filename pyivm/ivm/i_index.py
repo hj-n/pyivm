@@ -155,6 +155,7 @@ def i_index_adjusted(X, labels, k):
 	return i_index_btw(X, labels, k)
 
 def i_index(X, labels, adjusted=False, k=0.29289310158571386):
+	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return i_index_adjusted(X, labels, k)
 	else:
