@@ -19,7 +19,7 @@ PyIVM solves this with **adjusted metrics** (<a href="https://www.hyeonjeon.com/
 ## Features
 
 - **Six essential clustering metrics**: Calinski-Harabasz, Davies-Bouldin, Dunn, I-Index, Silhouette, and Xie-Beni
-- **Original + Adjusted forms**: Traditional metrics plus improved adjusted variants
+- **Original + Adjusted forms**: Traditional metrics plus improved adjusted variants 
 - **Easy to use**: Simple API that works with scikit-learn and numpy arrays
 
 ## Installation
