@@ -1,10 +1,18 @@
-# PyIVM - Python Library for Clustering Quality Metrics
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f9f72b26-4c96-4576-b871-fafed794f0e2" alt="PyIVM Logo" width="300">
+  
+  ### *PyIVM: Python Library for Clustering Quality Metrics*
+  
 
-A comprehensive Python library for computing clustering quality metrics with both **original** and **adjusted** forms, making clustering evaluation more reliable and meaningful.
+  
+  *A Python library for computing internal clustering validation metrics, i.e., quality metrics with both **original** and **adjusted** forms, making clustering evaluation more reliable and meaningful.*
+</div>
+
+---
 
 ## Why Adjusted Metrics?
 
-Traditional clustering metrics have a fundamental problem: they're biased and unreliable when comparing different clustering solutions. For example, some metrics artificially favor clusterings with more clusters, while others behave inconsistently across different datasets. This makes it nearly impossible to fairly evaluate which clustering is actually better.
+Traditional internal clustering validation measures, i.e., quality metrics, have a fundamental problem: they're biased and unreliable when comparing different clustering solutions. For example, some metrics artificially favor clusterings with more clusters, while others behave inconsistently across different datasets. This makes it nearly impossible to fairly evaluate which clustering is actually better.
 
 PyIVM solves this with **adjusted metrics** (<a href="https://www.hyeonjeon.com/assets/pdf/jeon25tpami.pdf" target="_blank">TPAMI 2025</a>). The adjusted versions remove these biases and provide consistent, reliable scores that enable fair comparison across different numbers of clusters and datasets. Moreover, all adjusted metrics use a simple "higher = better" interpretation, making clustering evaluation straightforward.
 
@@ -15,6 +23,8 @@ PyIVM solves this with **adjusted metrics** (<a href="https://www.hyeonjeon.com/
 - **Easy to use**: Simple API that works with scikit-learn and numpy arrays
 
 ## Installation
+
+PyIVM is available on PyPI and can be installed via pip:
 
 ```bash
 pip install pyivm
