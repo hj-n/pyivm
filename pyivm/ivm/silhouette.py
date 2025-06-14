@@ -62,8 +62,8 @@ def silhouette_adjusted(X, labels):
 	return silhouette_shift_class(X, labels)
 
 def silhouette(X, labels, adjusted=False):
-	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
+	utils.sanity_check(X, labels)
 	if adjusted:
 		return silhouette_adjusted(X, labels)
 	else:

@@ -5,23 +5,7 @@ import os
 import pyivm
 import io
 import json
-
-DATASETS = ["fashion_mnist", "coil20", "mnist64", "wine", "cifar10", "date_fruit", "extyaleb"]
-
-METRICS = [
-    ("calinski_harabasz", {"adjusted": False}),
-    ("calinski_harabasz", {"adjusted": True}),
-    ("davies_bouldin", {"adjusted": False}),
-    ("davies_bouldin", {"adjusted": True}),
-    ("dunn", {"adjusted": False}),
-    ("dunn", {"adjusted": True}),
-    ("i_index", {"adjusted": False}),
-    ("i_index", {"adjusted": True}),
-    ("silhouette", {"adjusted": False}),
-    ("silhouette", {"adjusted": True}),
-    ("xie_beni", {"adjusted": False}),
-    ("xie_beni", {"adjusted": True}),
-]
+from .test_config import DATASETS, METRICS
 
 @pytest.fixture(scope="session", params=DATASETS)
 def dataset_data(request):

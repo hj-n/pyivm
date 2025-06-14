@@ -49,8 +49,8 @@ def xie_beni_original(X, labels):
 	return compactness / separability
 
 def xie_beni(X, labels, adjusted=False, k=0.29289310158571386):
-	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
+	utils.sanity_check(X, labels)
 	if adjusted:
 		return i_index_adjusted(X, labels, k)
 	else:

@@ -96,8 +96,8 @@ def davies_bouldin_adjusted(X, labels, k):
 	return davies_bouldin_shift_range_class(X, labels, k)
 
 def davies_bouldin(X, labels, adjusted=False, k=2.4831185988914117):
-	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
+	utils.sanity_check(X, labels)
 	if adjusted:
 		return davies_bouldin_adjusted(X, labels, k)
 	else:

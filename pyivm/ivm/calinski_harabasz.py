@@ -130,8 +130,8 @@ def calinski_harabasz_adjusted(X, labels, k):
 
 
 def calinski_harabasz(X, labels, adjusted=False, k=4.432010535838295):
-	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
+	utils.sanity_check(X, labels)
 	if adjusted:
 		return calinski_harabasz_adjusted(X, labels, k)
 	else:
