@@ -146,15 +146,14 @@ def i_index_shift_range_class(X, labels, k):
 	return utils.pairwise_computation_k(X, labels, k, i_index_shift_range)
 
 
-def i_index_btw(X, labels, k):
-	return i_index_shift_range_class(X, labels, k)
 
 
 ## same with xie_beni
 def i_index_adjusted(X, labels, k):
-	return i_index_btw(X, labels, k)
+	return i_index_shift_range_class(X, labels, k)
 
 def i_index(X, labels, adjusted=False, k=0.29289310158571386):
+	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return i_index_adjusted(X, labels, k)

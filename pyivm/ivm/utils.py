@@ -89,3 +89,82 @@ def change_label_to_int(labels):
 	label_map = {old_label: new_label for new_label, old_label in enumerate(unique_labels)}
 	labels_int = np.array([label_map[old_label] for old_label in labels], dtype=np.int32)
 	return labels_int
+
+def sanity_check(X, labels):
+	"""
+	Comprehensive sanity check for clustering data and labels
+	
+	Parameters:
+	-----------
+	X : array-like, shape (n_samples, n_features)
+		Data points
+	labels : array-like, shape (n_samples,)
+		Cluster labels for each data point
+		
+	Returns:
+	--------
+	bool : True if all checks pass
+	
+	Raises:
+	-------
+	ValueError : If any sanity check fails
+	"""
+	X = np.asarray(X)
+	labels = np.asarray(labels)
+	
+	# Check if arrays are empty
+	if X.size == 0:
+		raise ValueError("Data array X is empty")
+	if labels.size == 0:
+		raise ValueError("Labels array is empty")
+	
+	# Check dimensions
+	if X.ndim != 2:
+		raise ValueError(f"X should be 2D array, got {X.ndim}D array")
+	if labels.ndim != 1:
+		raise ValueError(f"Labels should be 1D array, got {labels.ndim}D array")
+	
+	# Check if lengths match
+	if X.shape[0] != len(labels):
+		raise ValueError(f"Number of samples in X ({X.shape[0]}) does not match number of labels ({len(labels)})")
+	
+	# Check for minimum samples
+	if X.shape[0] < 3:
+		raise ValueError(f"Need at least 3 samples for clustering metrics, got {X.shape[0]}")
+	
+	# Check for valid data (no NaN or infinite values)
+	if np.any(np.isnan(X)):
+		raise ValueError("Data X contains NaN values")
+	if np.any(np.isinf(X)):
+		raise ValueError("Data X contains infinite values")
+	
+	# Get unique labels and their counts
+	unique_labels, counts = np.unique(labels, return_counts=True)
+	
+	# Check if there are at least 2 clusters
+	if len(unique_labels) < 2:
+		raise ValueError("Number of unique labels is 1. Need at least 2 clusters for clustering metrics.")
+	
+	# Check for single-point clusters
+	single_point_clusters = unique_labels[counts == 1]
+	if len(single_point_clusters) > 0:
+		raise ValueError(f"Found clusters with only 1 data point: {single_point_clusters}. "
+						f"All clusters must have at least 2 data points for meaningful clustering metrics.")
+	
+	# Check for too many clusters (more clusters than samples is suspicious)
+	if len(unique_labels) >= X.shape[0]:
+		raise ValueError(f"Number of clusters ({len(unique_labels)}) should be less than number of samples ({X.shape[0]})")
+	
+	# Check for NaN values in labels
+	if np.any(np.isnan(labels)):
+		raise ValueError("Labels contain NaN values")
+	
+	# Check label data type (should be convertible to integers)
+	try:
+		labels_int = labels.astype(int)
+		if not np.array_equal(labels.astype(float), labels_int.astype(float)):
+			raise ValueError("Labels should be integers or convertible to integers")
+	except (ValueError, OverflowError):
+		raise ValueError("Labels should be numeric and convertible to integers")
+	
+	return True

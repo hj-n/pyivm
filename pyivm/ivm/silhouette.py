@@ -57,13 +57,12 @@ def silhouette_shift(X, labels):
 def silhouette_shift_class(X, labels):
 	return utils.pairwise_computation(X, labels, silhouette_shift)
 
-def silhouette_btw(X, labels):
-	return silhouette_shift_class(X, labels)
 
 def silhouette_adjusted(X, labels):
-	return silhouette_btw(X, labels)
+	return silhouette_shift_class(X, labels)
 
 def silhouette(X, labels, adjusted=False):
+	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return silhouette_adjusted(X, labels)

@@ -124,14 +124,13 @@ def calinski_harabasz_shift_range_class(X, label, k):
 	return utils.pairwise_computation_k(X, label, k, calinski_harabasz_dcal_shift_range)
 
 
-def calinski_harabasz_btw(X, labels, k):
-	return calinski_harabasz_shift_range_class(X, labels, k)
 
 def calinski_harabasz_adjusted(X, labels, k):
-	return calinski_harabasz_btw(X, labels, k)
+	return calinski_harabasz_shift_range_class(X, labels, k)
 
 
 def calinski_harabasz(X, labels, adjusted=False, k=4.432010535838295):
+	utils.sanity_check(X, labels)
 	labels = utils.change_label_to_int(labels)
 	if adjusted:
 		return calinski_harabasz_adjusted(X, labels, k)
