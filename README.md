@@ -138,18 +138,12 @@ print(scores)
 
 ## Requirements
 
-- Python e 3.9
-- NumPy e 1.20.0
-- SciPy e 1.7.0
-- scikit-learn e 1.0.0
+- Python ^3.9
+- NumPy ^1.20.0
+- SciPy ^1.7.0
+- scikit-learn ^1.0.0
 
-## License
 
-MIT License
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Citation
 
