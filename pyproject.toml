@@ -4,6 +4,20 @@ version = "0.1.0"
 description = "Python library for clustering quality index metrics with original and adjusted forms"
 authors = ["Hyeon Jeon <hj@hcil.snu.ac.kr>"]
 readme = "README.md"
+homepage = "https://github.com/hj-n/pyivm"
+repository = "https://github.com/hj-n/pyivm"
+keywords = ["clustering", "metrics", "machine-learning", "data-science", "evaluation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"

@@ -5,7 +5,7 @@ import os
 import pyivm
 import io
 import json
-from .test_config import DATASETS, METRICS
+from .config import DATASETS, METRICS
 
 @pytest.fixture(scope="session", params=DATASETS)
 def dataset_data(request):
